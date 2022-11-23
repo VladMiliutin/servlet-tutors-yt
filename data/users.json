@@ -1,0 +1,28 @@
+{
+  "2598cb9a-e2e2-4c75-8cab-2c2e5e2de6a2" : {
+    "id" : "2598cb9a-e2e2-4c75-8cab-2c2e5e2de6a2",
+    "name" : "test",
+    "email" : "user-123456@test.com",
+    "messages" : [ {
+      "id" : "c6e8955e-52d2-4745-934b-23d4b39db854",
+      "text" : "Hello subscribers",
+      "userId" : "2598cb9a-e2e2-4c75-8cab-2c2e5e2de6a2"
+    }, {
+      "id" : "b8971a75-bf1b-4e49-85f8-071b9f935a57",
+      "text" : "New message",
+      "userId" : "2598cb9a-e2e2-4c75-8cab-2c2e5e2de6a2"
+    } ]
+  },
+  "ea13fc5e-72bd-4a95-bfc0-0eda8be14191" : {
+    "id" : "ea13fc5e-72bd-4a95-bfc0-0eda8be14191",
+    "name" : "singleton",
+    "email" : "singleton@email.com",
+    "messages" : [ ]
+  },
+  "348bbdda-678d-493e-a70e-f571d4de1a5d" : {
+    "id" : "348bbdda-678d-493e-a70e-f571d4de1a5d",
+    "name" : "new-user",
+    "email" : "new-user@test.com",
+    "messages" : [ ]
+  }
+}
