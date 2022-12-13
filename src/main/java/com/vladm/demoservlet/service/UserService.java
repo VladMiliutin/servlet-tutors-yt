@@ -16,10 +16,10 @@ public class UserService {
         this.userDao = userDao;
     }
 
-    public User createUser(String name, String email){
+    public User createUser(String name, String email, String password){
         String id = UUID.randomUUID().toString();
 
-        User user = new User(id, name, email);
+        User user = new User(id, name, email, password);
 
         if(userDao.userExists(user)){
             throw new UserAlreadyExistsException();

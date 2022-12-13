@@ -1,7 +1,9 @@
 package com.vladm.demoservlet.servlet;
 
 import com.vladm.demoservlet.model.Message;
+import com.vladm.demoservlet.model.UserPrincipal;
 import com.vladm.demoservlet.service.MessageService;
+import com.vladm.demoservlet.utils.CustomServletRequest;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletInputStream;
@@ -23,7 +25,7 @@ public class MessageServlet extends HttpServlet {
         ServletInputStream inputStream = req.getInputStream();
         String text = IOUtils.toString(inputStream);
 
-        String userId = req.getParameter("userId");
+        String userId = CustomServletRequest.getUserId(req);
 
         Message msg = messageService.save(userId, text);
         resp.getWriter().println(msg);
@@ -31,7 +33,7 @@ public class MessageServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("messages", messageService.findAll(req.getParameter("userId")));
+        req.setAttribute("messages", messageService.findAll(CustomServletRequest.getUserId(req)));
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("messages.jsp");
 
         requestDispatcher.forward(req, resp);

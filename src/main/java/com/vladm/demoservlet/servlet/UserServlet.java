@@ -32,7 +32,8 @@ public class UserServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) {
         String name = request.getParameter("name");
         String email = request.getParameter("email");
+        String password = request.getParameter("password");
 
-        userService.createUser(name, email);
+        userService.createUser(name, email, password);
     }
 }
