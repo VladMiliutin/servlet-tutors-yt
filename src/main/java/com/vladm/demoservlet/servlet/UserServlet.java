@@ -1,8 +1,9 @@
 package com.vladm.demoservlet.servlet;
 
-import com.vladm.demoservlet.model.User;
-import com.vladm.demoservlet.service.UserService;
-import jakarta.servlet.RequestDispatcher;
+
+import com.vladm.demoservlet.model.UserResponse;
+import com.vladm.demoservlet.service.UserMessageService;
+import com.vladm.demoservlet.utils.CustomServletRequest;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -10,30 +11,22 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
 
-@WebServlet(name = "userServlet", value = "/user")
+@WebServlet(name = "userServlet", value = "/users/*")
 public class UserServlet extends HttpServlet {
 
+    private final UserMessageService userMessageService = UserMessageService.getInstance();
 
-    private final UserService userService = UserService.getInstance();
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String userId = ((CustomServletRequest) req).getPath().substring("/users/".length());
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        request.setAttribute("users", userService.findAll());
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("user.jsp");
+        if(userId.length() == 0) {
+            userId = CustomServletRequest.getUserId(req);
+        }
 
-        requestDispatcher.forward(request, response);
-    }
-
-    public void doPost(HttpServletRequest request, HttpServletResponse response) {
-        String name = request.getParameter("name");
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
-
-        userService.createUser(name, email, password);
+        UserResponse user = userMessageService.findUser(userId);
+        req.setAttribute("user", user);
+        req.getRequestDispatcher("/user.jsp").forward(req, resp);
     }
 }

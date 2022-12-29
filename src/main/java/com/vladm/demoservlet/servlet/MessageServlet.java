@@ -1,41 +1,28 @@
 package com.vladm.demoservlet.servlet;
 
-import com.vladm.demoservlet.model.Message;
-import com.vladm.demoservlet.model.UserPrincipal;
-import com.vladm.demoservlet.service.MessageService;
+import com.vladm.demoservlet.model.MessageResponse;
+import com.vladm.demoservlet.service.UserMessageService;
 import com.vladm.demoservlet.utils.CustomServletRequest;
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.ServletInputStream;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.apache.commons.io.IOUtils;
 
 import java.io.IOException;
 
-@WebServlet(name = "messageServlet", value = "/message")
+@WebServlet(name = "messageServlet", value = "/messages/*")
 public class MessageServlet extends HttpServlet {
 
-    private final MessageService messageService = MessageService.getInstance();
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        ServletInputStream inputStream = req.getInputStream();
-        String text = IOUtils.toString(inputStream);
-
-        String userId = CustomServletRequest.getUserId(req);
-
-        Message msg = messageService.save(userId, text);
-        resp.getWriter().println(msg);
-    }
+    private final UserMessageService userMessageService = UserMessageService.getInstance();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("messages", messageService.findAll(CustomServletRequest.getUserId(req)));
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("messages.jsp");
+        String messageId = ((CustomServletRequest) req).getPath().substring("/messages/".length());
 
-        requestDispatcher.forward(req, resp);
+        MessageResponse messageResponse = userMessageService.findMessageById(messageId);
+
+        req.setAttribute("message", messageResponse);
+        req.getRequestDispatcher("/message.jsp").forward(req, resp);
     }
 }

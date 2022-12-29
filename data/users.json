@@ -4,21 +4,13 @@
     "name" : "test",
     "email" : "user-123456@test.com",
     "password" : "simple",
-    "messages" : [ {
-      "id" : "c6e8955e-52d2-4745-934b-23d4b39db854",
-      "text" : "Hello subscribers",
-      "userId" : "2598cb9a-e2e2-4c75-8cab-2c2e5e2de6a2"
-    }, {
-      "id" : "b8971a75-bf1b-4e49-85f8-071b9f935a57",
-      "text" : "New message",
-      "userId" : "2598cb9a-e2e2-4c75-8cab-2c2e5e2de6a2"
-    } ]
+    "messages" : [ "ee89bc4c-b9e7-4f98-bbb5-972400c1512a", "f1448897-adea-4c56-997f-a759a6c5a867", "8fa36793-794a-46cd-a909-8a40cd195266" ]
   },
   "01c80411-8e20-4395-8ffd-b8b57c0d459b" : {
     "id" : "01c80411-8e20-4395-8ffd-b8b57c0d459b",
     "name" : "basic-user",
     "email" : "basic@basic.com",
     "password" : "basic",
-    "messages" : [ ]
+    "messages" : [ "6652a66b-4685-40c8-b380-abe14b956657", "c2d3986a-91c1-4c5c-a6c0-79e88440156e", "17de2ddc-9871-491a-83ca-3ae9542d952c", "70e9be89-4093-4aa3-9749-268800c13645" ]
   }
 }

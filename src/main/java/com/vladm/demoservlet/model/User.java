@@ -11,7 +11,7 @@ public class User {
     private String email;
     private String password;
 
-    private List<Message> messages = new ArrayList<>();
+    private List<String> messages = new ArrayList<>();
 
     public User(String id, String name, String email, String password){
         this.id = id;
@@ -46,15 +46,15 @@ public class User {
         return email;
     }
 
-    public void addMessage(Message message) {
-        this.messages.add(message);
+    public void addMessage(String messageId) {
+        this.messages.add(messageId);
     }
 
-    public List<Message> getMessages() {
+    public List<String> getMessages() {
         return this.messages;
     }
 
-    public void setMessages(List<Message> messages) {
+    public void setMessages(List<String> messages) {
         this.messages = messages;
     }
 

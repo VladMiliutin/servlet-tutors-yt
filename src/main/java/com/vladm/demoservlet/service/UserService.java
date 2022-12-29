@@ -2,6 +2,7 @@ package com.vladm.demoservlet.service;
 
 import com.vladm.demoservlet.dao.FileStorageUserDao;
 import com.vladm.demoservlet.dao.UserDao;
+import com.vladm.demoservlet.exception.NotFoundException;
 import com.vladm.demoservlet.exception.UserAlreadyExistsException;
 import com.vladm.demoservlet.model.User;
 
@@ -26,6 +27,11 @@ public class UserService {
         }
 
         return userDao.save(user);
+    }
+
+    public User findOne(String id) {
+        return userDao.findOne(id)
+                .orElseThrow(NotFoundException::new);
     }
 
     public List<User> findAll() {

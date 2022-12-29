@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Hello Youtube</title>
+    <title>Message board</title>
 </head>
 <body>
-</h1>
-<br/>
-<a href="user">User</a>
-<a href="message">Messages</a>
+<h1>Welcome to our platform</h1>
 <a href="sign-up.jsp">Sign Up</a>
+<a href="users">Sign In</a>
+<a href="users">Users</a>
+<a href="<%=request.getScheme() + "://log:out@" + request.getHeader("Host") + request.getContextPath()%>">Logout</a>
 </body>
 </html>

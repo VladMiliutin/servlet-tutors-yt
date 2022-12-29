@@ -1,0 +1,18 @@
+{
+  "8fa36793-794a-46cd-a909-8a40cd195266" : {
+    "id" : "8fa36793-794a-46cd-a909-8a40cd195266",
+    "text" : "Reply from another user",
+    "userId" : "2598cb9a-e2e2-4c75-8cab-2c2e5e2de6a2",
+    "replyToId" : "70e9be89-4093-4aa3-9749-268800c13645",
+    "replyIds" : [ ],
+    "reply" : true
+  },
+  "70e9be89-4093-4aa3-9749-268800c13645" : {
+    "id" : "70e9be89-4093-4aa3-9749-268800c13645",
+    "text" : "First tweet",
+    "userId" : "01c80411-8e20-4395-8ffd-b8b57c0d459b",
+    "replyToId" : null,
+    "replyIds" : [ "8fa36793-794a-46cd-a909-8a40cd195266" ],
+    "reply" : false
+  }
+}
