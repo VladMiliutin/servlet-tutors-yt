@@ -3,6 +3,7 @@ package com.vladm.demoservlet.servlet;
 import com.vladm.demoservlet.model.Message;
 import com.vladm.demoservlet.service.MessageService;
 import com.vladm.demoservlet.utils.CustomServletRequest;
+import com.vladm.demoservlet.utils.RequestsConstants;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletInputStream;
@@ -24,7 +25,7 @@ public class MessagesServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ServletInputStream inputStream = req.getInputStream();
         String text = IOUtils.toString(inputStream);
-        Optional<String> replyToId = Optional.ofNullable(req.getParameter("replyTo"));
+        Optional<String> replyToId = Optional.ofNullable(req.getParameter(RequestsConstants.REPLY_TO));
 
         String userId = CustomServletRequest.getUserId(req);
 

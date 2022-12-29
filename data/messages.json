@@ -12,7 +12,31 @@
     "text" : "First tweet",
     "userId" : "01c80411-8e20-4395-8ffd-b8b57c0d459b",
     "replyToId" : null,
-    "replyIds" : [ "8fa36793-794a-46cd-a909-8a40cd195266" ],
+    "replyIds" : [ "8fa36793-794a-46cd-a909-8a40cd195266", "158cd6e9-4fe3-48da-8ebf-42689a906323" ],
+    "reply" : false
+  },
+  "158cd6e9-4fe3-48da-8ebf-42689a906323" : {
+    "id" : "158cd6e9-4fe3-48da-8ebf-42689a906323",
+    "text" : "reply from new user",
+    "userId" : "35d5618c-f8eb-4a3c-99c8-8c6525118afc",
+    "replyToId" : "70e9be89-4093-4aa3-9749-268800c13645",
+    "replyIds" : [ ],
+    "reply" : true
+  },
+  "644b9e44-3573-4d62-8748-8c3ab4ad191a" : {
+    "id" : "644b9e44-3573-4d62-8748-8c3ab4ad191a",
+    "text" : "self reply",
+    "userId" : "2598cb9a-e2e2-4c75-8cab-2c2e5e2de6a2",
+    "replyToId" : "fb82cb7a-af19-4f5b-af17-8c6ffc78dd10",
+    "replyIds" : [ ],
+    "reply" : true
+  },
+  "fb82cb7a-af19-4f5b-af17-8c6ffc78dd10" : {
+    "id" : "fb82cb7a-af19-4f5b-af17-8c6ffc78dd10",
+    "text" : "New tweet",
+    "userId" : "2598cb9a-e2e2-4c75-8cab-2c2e5e2de6a2",
+    "replyToId" : null,
+    "replyIds" : [ "644b9e44-3573-4d62-8748-8c3ab4ad191a" ],
     "reply" : false
   }
 }

@@ -56,10 +56,7 @@ public class CustomServletRequest extends HttpServletRequestWrapper {
     public Principal getUserPrincipal() {
         String authHeader = getHeader("Authorization");
 
-        String id = null;
-        if(getHeader("ID") != null) {
-            id = getHeader("ID");
-        }
+        String id = getHeader(RequestsConstants.ID);
 
         Principal principal = null;
 

@@ -2,6 +2,7 @@ package com.vladm.demoservlet.servlet;
 
 import com.vladm.demoservlet.model.User;
 import com.vladm.demoservlet.service.UserService;
+import com.vladm.demoservlet.utils.RequestsConstants;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -25,9 +26,9 @@ public class UsersServlet extends HttpServlet {
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String name = request.getParameter("name");
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
+        String name = request.getParameter(RequestsConstants.NAME);
+        String email = request.getParameter(RequestsConstants.EMAIL);
+        String password = request.getParameter(RequestsConstants.PASSWORD);
 
         User user = userService.createUser(name, email, password);
 

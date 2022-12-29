@@ -1,5 +1,5 @@
-<%@ page import="com.vladm.demoservlet.model.Message" %>
 <%@ page import="com.vladm.demoservlet.model.MessageResponse" %>
+<%@ page import="com.vladm.demoservlet.utils.RequestsConstants" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <%
@@ -60,7 +60,7 @@
             let href = window.location.href;
             let lastIndex = href.lastIndexOf('/');
             let id = href.substring(lastIndex + 1, href.length);
-            let url = href.substring(0, lastIndex) + '?replyTo=' + id;
+            let url = href.substring(0, lastIndex) + '?<%=RequestsConstants.REPLY_TO%>=' + id;
             await fetch(url, {method: 'POST', body: msg})
             document.location.reload()
         }

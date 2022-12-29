@@ -4,7 +4,7 @@
     "name" : "test",
     "email" : "user-123456@test.com",
     "password" : "simple",
-    "messages" : [ "ee89bc4c-b9e7-4f98-bbb5-972400c1512a", "f1448897-adea-4c56-997f-a759a6c5a867", "8fa36793-794a-46cd-a909-8a40cd195266" ]
+    "messages" : [ "ee89bc4c-b9e7-4f98-bbb5-972400c1512a", "f1448897-adea-4c56-997f-a759a6c5a867", "8fa36793-794a-46cd-a909-8a40cd195266", "fb82cb7a-af19-4f5b-af17-8c6ffc78dd10", "644b9e44-3573-4d62-8748-8c3ab4ad191a" ]
   },
   "01c80411-8e20-4395-8ffd-b8b57c0d459b" : {
     "id" : "01c80411-8e20-4395-8ffd-b8b57c0d459b",
@@ -12,5 +12,12 @@
     "email" : "basic@basic.com",
     "password" : "basic",
     "messages" : [ "6652a66b-4685-40c8-b380-abe14b956657", "c2d3986a-91c1-4c5c-a6c0-79e88440156e", "17de2ddc-9871-491a-83ca-3ae9542d952c", "70e9be89-4093-4aa3-9749-268800c13645" ]
+  },
+  "35d5618c-f8eb-4a3c-99c8-8c6525118afc" : {
+    "id" : "35d5618c-f8eb-4a3c-99c8-8c6525118afc",
+    "name" : "new-user",
+    "email" : "new-user",
+    "password" : "new-user",
+    "messages" : [ "158cd6e9-4fe3-48da-8ebf-42689a906323" ]
   }
 }

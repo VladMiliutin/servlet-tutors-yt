@@ -4,6 +4,7 @@ import com.vladm.demoservlet.model.User;
 import com.vladm.demoservlet.model.UserPrincipal;
 import com.vladm.demoservlet.service.UserService;
 import com.vladm.demoservlet.utils.CustomServletRequest;
+import com.vladm.demoservlet.utils.RequestsConstants;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebFilter;
@@ -27,7 +28,7 @@ public class AuthFilter extends HttpFilter {
 
     static {
         ALLOW_METHOD_URL_MAP.put("GET", List.of("/index", "/", "", "/sign-up.jsp"));
-        ALLOW_METHOD_URL_MAP.put("POST", List.of("/user"));
+        ALLOW_METHOD_URL_MAP.put("POST", List.of("/users"));
     }
 
     @Override
@@ -54,7 +55,7 @@ public class AuthFilter extends HttpFilter {
         Optional<User> dbUser = userService.findByName(userPrincipal.getName());
 
         if(dbUser.isPresent() && dbUser.get().getPassword().equals(userPrincipal.getPassword())) {
-            request.putHeader("ID", dbUser.get().getId());
+            request.putHeader(RequestsConstants.ID, dbUser.get().getId());
             chain.doFilter(request, res);
         } else {
             requireLogin(res);

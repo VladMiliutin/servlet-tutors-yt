@@ -1,7 +1,6 @@
-<%@ page import="com.vladm.demoservlet.model.User" %>
-<%@ page import="java.util.List" %>
 <%@ page import="com.vladm.demoservlet.model.UserResponse" %>
 <%@ page import="com.vladm.demoservlet.model.MessageResponse" %>
+<%@ page import="com.vladm.demoservlet.utils.RequestsConstants" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -78,7 +77,7 @@
         </div>
     </div>
     <div class="tweets-box">
-        <% if(user.getId().equals(request.getHeader("ID"))) { %>
+        <% if(user.getId().equals(request.getHeader(RequestsConstants.ID))) { %>
         <h1>What's on your mind</h1>
         <div class="send-tweet">
             <textarea id="message"></textarea>
